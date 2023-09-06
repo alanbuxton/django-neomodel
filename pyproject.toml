@@ -27,7 +27,7 @@ classifiers = [
     "Topic :: Database",
 ]
 dependencies = [
-    "neomodel~=5.3.0",
+    "neomodel @ git+https://github.com/alanbuxton/neomodel@multiple_inheritance",
     'django>=4.2.8'
 ]
 version='0.2.0'
