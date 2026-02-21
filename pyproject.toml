@@ -13,7 +13,7 @@ authors = [{name = "Robin Edwards", email = "robin.ge@gmail.com"}]
 maintainers = [{name = "Marius Conjeaud", email = "marius.conjeaud@outlook.com"}]
 description = "Use Neo4j with Django!"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 keywords = ["graph", "neo4j", "django", "plugin", "neomodel"]
 license = { text = "MIT" }
 classifiers = [

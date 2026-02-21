@@ -1,5 +1,5 @@
 from django.test import TestCase
-from neomodel import db, clear_neo4j_database
+from neomodel import db
 from django.db import transaction
 import django
 django.setup()
@@ -9,7 +9,7 @@ from tests.someapp.models import Book, Library
 
 class AtomicityTestClass(TestCase):
     def setUp(self):
-        clear_neo4j_database(db)
+        db.clear_neo4j_database()
 
     def test_create_object(self):
         try:

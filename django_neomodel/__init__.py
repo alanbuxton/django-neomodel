@@ -8,7 +8,7 @@ from django.db.models.options import Options
 from django.core.exceptions import ValidationError
 
 from neomodel import RequiredProperty, DeflateError, StructuredNode, UniqueIdProperty
-from neomodel.sync_.core import NodeMeta
+from neomodel.sync_.node import NodeMeta
 from neomodel.sync_.match import NodeSet
 
 
@@ -216,7 +216,7 @@ class DjangoNode(StructuredNode, metaclass=MetaClass):
 
         return opts
 
-    def full_clean(self, exclude, validate_unique=False):
+    def full_clean(self, exclude=None, validate_unique=False, validate_constraints=True):
         """
         Validate node, on error raising ValidationErrors which can be handled by django forms
 
@@ -232,6 +232,9 @@ class DjangoNode(StructuredNode, metaclass=MetaClass):
             raise ValidationError({e.property_name: e.msg})
         except RequiredProperty as e:
             raise ValidationError({e.property_name: "is required"})
+
+    def validate_constraints(self, exclude=None):
+        pass
 
     def validate_unique(self, exclude):
         # get unique indexed properties
